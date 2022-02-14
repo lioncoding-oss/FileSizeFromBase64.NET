@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<AssemblyName>FileSizeFromBase64.NET</AssemblyName>
+		<RootNamespace>FileSizeFromBase64.NET</RootNamespace>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Kodjo Laurent Egbakou</Authors>
+		<Description>Get file size from base64 string</Description>
+		<PackageProjectUrl>https://github.com/lioncoding-oss/FileSizeFromBase64.NET</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/lioncoding-oss/FileSizeFromBase64.NET</RepositoryUrl>
+		<PackageIcon>logo.png</PackageIcon>
+		<Version>1.0.0</Version>
+		<PackageReleaseNotes>See: https://github.com/lioncoding-oss/FileSizeFromBase64.NET </PackageReleaseNotes>
+		<PackageTags>FileSize, Base64, Paddings, MIME-type</PackageTags>
+		<Copyright>Copyright 2022</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<NeutralLanguage>en</NeutralLanguage>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>bin\Debug</OutputPath>
+		<DefineConstants>DEBUG</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>portable</DebugType>
+		<Optimize>true</Optimize>
+		<DocumentationFile>bin\Release\FileSizeFromBase64.NET.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
+		<None Include="..\..\art\logo.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+</Project>
