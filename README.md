@@ -1,5 +1,5 @@
 
-
+[![CI](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml/badge.svg)](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml)
 <div style="text-align:center"><img src="art/logo.png" width=140 /></div>
 
 # FileSizeFromBase64.NET
