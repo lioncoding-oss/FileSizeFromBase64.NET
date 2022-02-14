@@ -10,7 +10,7 @@ namespace FileSizeFromBase64.NET
         /// <summary>
         /// Calculate a file size from base64 string.
         /// </summary>
-        /// <param name="base64String">The base64 string of the file.</param>
+        /// <param name="base64String">The base64 string.</param>
         /// <param name="applyPaddingsRules">Indicate if the padding management is required or not. Default is false</param>
         /// <param name="unitsOfMeasurement">The unit of measure of the file size returned by the method. The default unit of measure is Byte.</param>
         /// <returns>The size of the file represented by the base64 string.</returns>
@@ -18,12 +18,12 @@ namespace FileSizeFromBase64.NET
         {
             if (string.IsNullOrEmpty(base64String)) return 0;
 
-            // Remove MIME type from the base64 if exists
+            // Remove MIME-type from the base64 if exists
             var base64Length = base64String.Contains("base64,")  ? base64String.Split(',')[1].Length : base64String.Length;
 
             var fileSizeInBytes = Math.Ceiling((double)base64Length /4) * 3;
 
-            if(applyPaddingsRules && base64Length >=2)
+            if(applyPaddingsRules && base64Length >= 2)
              {
                 var paddings = base64String[^2..];
                 fileSizeInBytes = paddings.Equals("==") ? fileSizeInBytes - 2 : paddings[1].Equals("=") ? fileSizeInBytes - 1 : fileSizeInBytes;
@@ -31,7 +31,6 @@ namespace FileSizeFromBase64.NET
 
             return (fileSizeInBytes > 0) ? fileSizeInBytes / (int)unitsOfMeasurement : 0;
         }
-
     }
 
     /// <summary>
