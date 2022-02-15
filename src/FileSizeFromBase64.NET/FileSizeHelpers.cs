@@ -21,15 +21,15 @@ namespace FileSizeFromBase64.NET
             // Remove MIME-type from the base64 if exists
             var base64Length = base64String.Contains("base64,")  ? base64String.Split(',')[1].Length : base64String.Length;
 
-            var fileSizeInBytes = Math.Ceiling((double)base64Length /4) * 3;
+            var fileSizeInByte = Math.Ceiling((double)base64Length /4) * 3;
 
             if(applyPaddingsRules && base64Length >= 2)
              {
                 var paddings = base64String[^2..];
-                fileSizeInBytes = paddings.Equals("==") ? fileSizeInBytes - 2 : paddings[1].Equals("=") ? fileSizeInBytes - 1 : fileSizeInBytes;
+                fileSizeInByte = paddings.Equals("==") ? fileSizeInByte - 2 : paddings[1].Equals("=") ? fileSizeInByte - 1 : fileSizeInByte;
             }
 
-            return (fileSizeInBytes > 0) ? fileSizeInBytes / (int)unitsOfMeasurement : 0;
+            return (fileSizeInByte > 0) ? fileSizeInByte / (int)unitsOfMeasurement : 0;
         }
     }
 
