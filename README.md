@@ -45,7 +45,7 @@ using FileSizeFromBase64.NET;
 var base64String = "data:text/plain;base64,SGVsbG8gd29ybGQgIQ==";
 
 var fileSize = FileSizeHelpers.GetFileSizeFromBase64String(base64String, true);
-Console.WriteLine($"File size: {fileSize}")
+Console.WriteLine($"File size: {fileSize}");
     
 var fileSizeInKB = FileSizeHelpers.GetFileSizeFromBase64String(base64String, true, UnitsOfMeasurement.KiloByte);
 
