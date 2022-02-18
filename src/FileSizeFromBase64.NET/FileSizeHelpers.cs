@@ -14,14 +14,14 @@ namespace FileSizeFromBase64.NET
         /// <param name="applyPaddingsRules">Indicate if the padding management is required or not. Default is false</param>
         /// <param name="unitsOfMeasurement">The unit of measure of the file size returned by the method. The default unit of measure is Byte.</param>
         /// <returns>The size of the file represented by the base64 string.</returns>
-        public static double GetFileSizeFromBase64String(string base64String, Boolean applyPaddingsRules = false, UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
+        public static double GetFileSizeFromBase64String(string base64String, bool applyPaddingsRules = false, UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
         {
             if (string.IsNullOrEmpty(base64String)) return 0;
 
-            // Remove MIME-type from the base64 if exists
+            // Remove MIME-type from the base64 string if exists and get the string length
             var base64Length = base64String.Contains("base64,")  ? base64String.Split(',')[1].Length : base64String.Length;
 
-            var fileSizeInByte = Math.Ceiling((double)base64Length /4) * 3;
+            var fileSizeInByte = Math.Ceiling((double)base64Length / 4) * 3;
 
             if(applyPaddingsRules && base64Length >= 2)
              {
@@ -49,6 +49,6 @@ namespace FileSizeFromBase64.NET
         /// <summary>
         /// MB.
         /// </summary>
-        MegaByte = 1_048_576,
+        MegaByte = 1_048_576
     }
 }
