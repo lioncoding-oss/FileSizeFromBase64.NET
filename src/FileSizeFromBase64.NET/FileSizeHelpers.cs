@@ -34,16 +34,16 @@ namespace FileSizeFromBase64.NET
     }
 
     /// <summary>
-    /// Unit of Measure.
+    /// Unit of measurement.
     /// </summary>
     public enum UnitsOfMeasurement
     {
         /// <summary>
-        /// Byte.
+        /// B.
         /// </summary>
         Byte = 1,
         /// <summary>
-        /// KB
+        /// KB.
         /// </summary>
         KiloByte = 1_024,
         /// <summary>
