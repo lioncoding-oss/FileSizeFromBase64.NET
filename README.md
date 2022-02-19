@@ -30,11 +30,11 @@ using FileSizeFromBase64.NET;
 var fileSize = FileSizeHelpers.GetFileSizeFromBase64String(string base64String, bool applyPaddingsRules, UnitsOfMeasurement unitsOfMeasurement)
 ```
 
-| Parameters           | Data type |                         Description                          |       Default Value       |
-| :------------------- | :-------: | :----------------------------------------------------------: | :-----------------------: |
-| `base64String`       |  string   |           The base64 representation  of the file.            |                           |
-| `applyPaddingsRules` |  boolean  | [Base64 - Padding](https://en.wikipedia.org/wiki/Base64#Output_padding) |          `false`          |
-| `unitsOfMeasurement` |   Enum    | The unit of measurement for the file size returned by the method: `UnitsOfMeasurement.Byte`, `UnitsOfMeasurement.KiloByte`, `UnitsOfMeasurement.MegaByte` | `UnitsOfMeasurement.Byte` |
+| Parameters           | Data type |                         Description                          | Required |       Default Value       |
+| :------------------- | :-------: | :----------------------------------------------------------: | -------- | :-----------------------: |
+| `base64String`       |  string   |           The base64 representation  of the file.            | Yes      |                           |
+| `applyPaddingsRules` |  boolean  | [Base64 - Padding](https://en.wikipedia.org/wiki/Base64#Output_padding) | No       |          `false`          |
+| `unitsOfMeasurement` |   Enum    | The unit of measurement for the file size returned by the method: `UnitsOfMeasurement.Byte`, `UnitsOfMeasurement.KiloByte`, `UnitsOfMeasurement.MegaByte` | No       | `UnitsOfMeasurement.Byte` |
 
 ## Usage
 
@@ -61,7 +61,7 @@ var fileSizeInMB = FileSizeHelpers.GetFileSizeFromBase64String(base64String, tru
 
 ## License
 
-The MIT License (MIT) see [License file](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/blob/main/LICENSE)
+The MIT License (MIT) see the [License file](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/blob/main/LICENSE)
 
 ## Contribution
 
