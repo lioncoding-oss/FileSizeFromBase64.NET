@@ -5,4 +5,4 @@ Find more information at: https://github.com/lioncoding-oss/FileSizeFromBase64.N
 using FileSizeFromBase64.NET;
 
 var sizeInByte =  FileSizeHelpers.GetFileSizeFromBase64String("your-base64-string");
-var sizeInMB = FileSizeHelpers.GetFileSizeFromBase64String("your-base64-string", UnitsOfMeasurement.Mesagebyte);
+var sizeInMB = FileSizeHelpers.GetFileSizeFromBase64String("your-base64-string", UnitsOfMeasurement.MegaByte);
