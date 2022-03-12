@@ -1,3 +1,4 @@
+## Note
 Find more information at: https://github.com/lioncoding-oss/FileSizeFromBase64.NET
 
 
