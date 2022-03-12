@@ -1,5 +1,7 @@
+[![CI](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml/badge.svg)](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml)  [![NuGet](https://img.shields.io/nuget/v/FileSizeFromBase64.NET.svg?label=NuGet)](https://www.nuget.org/packages/FileSizeFromBase64.NET/)
 
-[![CI](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml/badge.svg)](https://github.com/lioncoding-oss/FileSizeFromBase64.NET/actions/workflows/ci.yml)
+
+
 <div style="text-align:center"><img src="art/logo.png" width=140 /></div>
 
 # FileSizeFromBase64.NET
