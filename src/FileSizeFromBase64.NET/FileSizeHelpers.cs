@@ -17,19 +17,18 @@ namespace FileSizeFromBase64.NET
         public static double GetFileSizeFromBase64String(string base64String, bool applyPaddingsRules = false, UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
         {
             if (string.IsNullOrEmpty(base64String)) return 0;
-
-            // Remove MIME-type from the base64 string if exists and get the string length
-            var base64Length = base64String.Contains("base64,")  ? base64String.Split(',')[1].Length : base64String.Length;
-
+            
+            var base64Length =  base64String.AsSpan().Slice(base64String.IndexOf(',') + 1).Length;
+            
             var fileSizeInByte = Math.Ceiling((double)base64Length / 4) * 3;
-
-            if(applyPaddingsRules && base64Length >= 2)
-             {
-                var paddings = base64String[^2..];
-                fileSizeInByte = paddings.Equals("==") ? fileSizeInByte - 2 : paddings[1].Equals("=") ? fileSizeInByte - 1 : fileSizeInByte;
+           
+            if (applyPaddingsRules && base64Length >= 2)
+            {
+                var paddings = base64String.AsSpan()[^2..];
+                fileSizeInByte = paddings.EndsWith("==") ? fileSizeInByte - 2 :
+                    paddings[1].Equals('=') ? fileSizeInByte - 1 : fileSizeInByte;
             }
-
-            return (fileSizeInByte > 0) ? fileSizeInByte / (int)unitsOfMeasurement : 0;
+            return fileSizeInByte > 0 ? fileSizeInByte / (int)unitsOfMeasurement : 0;
         }
     }
 
