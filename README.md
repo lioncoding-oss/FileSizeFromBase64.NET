@@ -24,6 +24,10 @@ Alternatively, if you're using .NET Core then you can install FileSizeFromBase64
 dotnet add package FileSizeFromBase64.NET
 ```
 
+🚀 Install the latest version for better performance
+
+![](art\screenshots\base64_with_mime_type.png)
+
 ## Documentation
 
 ```csharp
