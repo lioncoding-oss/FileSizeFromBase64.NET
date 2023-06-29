@@ -10,7 +10,7 @@ A .NET Standard 2.1 project containing a single method to **get file size from b
 
 ## Installation
 
-You can install the NuGet Package in any .NET Project: .NET, .NET Standard, .NET Core, .NET 5 & 6, Xamarin, Maui, ... etc.
+You can install the NuGet Package in any .NET Project: .NET, .NET Standard, .NET Core, .NET, Xamarin, Maui, ... etc.
 
  FileSizeFromBase64.NET can be [found here on NuGet](https://www.nuget.org/packages/FileSizeFromBase64.NET/) and can be installed by copying and pasting the following command into your Package Manager Console within Visual Studio (Tools > NuGet Package Manager > Package Manager Console).
 
