@@ -7,13 +7,14 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Kodjo Laurent Egbakou</Authors>
 		<Description>Get file size from base64 string</Description>
+		<PackageReadmeFile>nuget.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/lioncoding-oss/FileSizeFromBase64.NET</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/lioncoding-oss/FileSizeFromBase64.NET</RepositoryUrl>
 		<PackageIcon>logo.png</PackageIcon>
 		<Version>2.0.1</Version>
 		<PackageReleaseNotes>See: https://github.com/lioncoding-oss/FileSizeFromBase64.NET </PackageReleaseNotes>
 		<PackageTags>FileSize, Base64, Paddings, MIME-type</PackageTags>
-		<Copyright>Copyright 2022</Copyright>
+		<Copyright>Copyright 2026</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
 	</PropertyGroup>
@@ -32,6 +33,7 @@
 
 	<ItemGroup>
 		<None Include="..\..\nuget\readme.txt" PackagePath="readme.txt" Pack="true" />
+		<None Include="..\..\nuget\nuget.md" Pack="true" PackagePath="" />
 		<None Include="..\..\art\logo.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 
