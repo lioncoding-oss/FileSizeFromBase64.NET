@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/Solutions Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+    <File Path=".github/workflows/ci.yml"/>
+    <File Path=".github/workflows/cd.yml"/>
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/FileSizeFromBase64.NET/FileSizeFromBase64.NET.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FileSizeFromBase64.Benchmarks/FileSizeFromBase64.Benchmarks.csproj" />
+    <Project Path="tests/FileSizeFromBase64.NET.ConsoleApp/FileSizeFromBase64.NET.ConsoleApp.csproj" />
+    <Project Path="tests/FileSizeFromBase64.NET.Tests/FileSizeFromBase64.NET.Tests.csproj" />
+  </Folder>
+</Solution>
