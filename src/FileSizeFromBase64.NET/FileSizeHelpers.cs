@@ -17,17 +17,26 @@ namespace FileSizeFromBase64.NET
         public static double GetFileSizeFromBase64String(string base64String, bool applyPaddingsRules = false, UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
         {
             if (string.IsNullOrEmpty(base64String)) return 0;
-            
-            var base64Length =  base64String.AsSpan().Slice(base64String.IndexOf(',') + 1).Length;
-            
+
+            var base64Length = base64String
+                .AsSpan()
+                [(base64String.IndexOf(',', StringComparison.Ordinal) + 1)..]
+                .Length;
+
             var fileSizeInByte = Math.Ceiling((double)base64Length / 4) * 3;
-           
+
             if (applyPaddingsRules && base64Length >= 2)
             {
-                var paddings = base64String.AsSpan()[^2..];
-                fileSizeInByte = paddings.EndsWith("==") ? fileSizeInByte - 2 :
-                    paddings[1].Equals('=') ? fileSizeInByte - 1 : fileSizeInByte;
+                ReadOnlySpan<char> paddings = base64String.AsSpan()[^2..];
+
+                fileSizeInByte = paddings switch
+                {
+                    _ when paddings.Equals("==", StringComparison.Ordinal) => fileSizeInByte - 2,
+                    _ when paddings[1].Equals('=') => fileSizeInByte - 1,
+                    _ => fileSizeInByte
+                };
             }
+
             return fileSizeInByte > 0 ? fileSizeInByte / (int)unitsOfMeasurement : 0;
         }
     }
@@ -41,10 +50,12 @@ namespace FileSizeFromBase64.NET
         /// B.
         /// </summary>
         Byte = 1,
+
         /// <summary>
         /// KB.
         /// </summary>
         KiloByte = 1_024,
+
         /// <summary>
         /// MB.
         /// </summary>

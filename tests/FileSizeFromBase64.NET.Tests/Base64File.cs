@@ -1,13 +1,12 @@
-﻿namespace FileSizeFromBase64.NET.Tests
+﻿namespace FileSizeFromBase64.NET.Tests;
+
+public sealed record Base64File
 {
-    public class Base64File
-    {
-        public string? Base64String { get; set; }
+    public required string Base64String { get; init; }
 
-        public int Size { get; set; }
+    public int Size { get; init; }
 
-        public string? Description { get; set; }
+    public string? Description { get; init; }
 
-        public bool UsePaddingsRules { get; set; }
-    }
+    public bool UsePaddingsRules { get; init; }
 }
