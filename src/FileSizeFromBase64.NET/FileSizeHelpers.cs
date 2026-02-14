@@ -14,7 +14,10 @@ namespace FileSizeFromBase64.NET
         /// <param name="applyPaddingsRules">Indicate if the padding management is required or not. Default is false</param>
         /// <param name="unitsOfMeasurement">The unit of measure of the file size returned by the method. The default unit of measure is Byte.</param>
         /// <returns>The size of the file represented by the base64 string.</returns>
-        public static double GetFileSizeFromBase64String(string base64String, bool applyPaddingsRules = false, UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
+        public static double GetFileSizeFromBase64String(
+            string base64String,
+            bool applyPaddingsRules = false,
+            UnitsOfMeasurement unitsOfMeasurement = UnitsOfMeasurement.Byte)
         {
             if (string.IsNullOrEmpty(base64String)) return 0d;
 
