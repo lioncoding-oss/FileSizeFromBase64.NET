@@ -10,21 +10,36 @@ using FileSizeFromBase64.NET;
 
 namespace FileSizeFromBase64.Benchmarks;
 
-[MediumRunJob]
-[MemoryDiagnoser]
+[Config(typeof(Config))]
 public class FileSizeHelpersBenchmark
 {
     private sealed class Config : ManualConfig
     {
         public Config()
         {
-            var baseJob = Job.MediumRun;
+            string[] versions = [
+                "1.0.0",
+                "2.0.0",
+                "2.0.1",
+                "3.0.0"
+            ];
 
-            AddJob(baseJob.WithNuGet("FileSizeFromBase64.NET", "1.0.0").WithId("v1.0.0").WithBaseline(true));
-            AddJob(baseJob.WithNuGet("FileSizeFromBase64.NET", "2.0.0").WithId("v2.0.0"));
-            AddJob(baseJob.WithNuGet("FileSizeFromBase64.NET", "2.0.1").WithId("v2.0.1"));
+            foreach (var version in versions)
+            {
+                var job = Job.MediumRun
+                    .WithMsBuildArguments($"/p:FileSizeFromBase64NETVersion={version}")
+                    .WithId($"v{version}");
+
+                if (version == "1.0.0")
+                {
+                    job = job.WithBaseline(true);
+                }
+
+                AddJob(job);
+            }
 
             AddDiagnoser(MemoryDiagnoser.Default);
+            HideColumns(Column.Arguments);
             SummaryStyle = SummaryStyle.Default.WithRatioStyle(RatioStyle.Percentage);
             Orderer = new DefaultOrderer(SummaryOrderPolicy.FastestToSlowest);
         }
